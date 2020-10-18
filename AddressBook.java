@@ -40,25 +40,38 @@ class AddressBook
     { 
 		int check=1;
 		int n=0;
+		int cas=0;
 		Scanner sc = new Scanner(System.in);
 		AddressBook custom = new AddressBook();
-		while(check==1){
-			System.out.println("Enter the roll number :");
-			int roll = sc.nextInt();
-					sc.nextLine();
-			System.out.println("Enter the Name :");
-			String name = sc.nextLine();
-			System.out.println("Enter the Marks :");
-			int marks = sc.nextInt();
-			System.out.println("Enter the Mobile Number :");
-			long phone = sc.nextLong();
-			System.out.println("Do you want to countinue then Enter (1)");
-			check = sc.nextInt();
-			n++;
-			//System.out.println(check);
-			custom.addValues(roll, name, marks, phone); 
-		}
-		custom.print(n);
-		
+		do{
+			System.out.println("1.Add Person \n2.Display Person\n3.Exit");
+			cas = sc.nextInt();
+				switch (cas){
+					case 1:
+						check=1;
+						while(check==1){
+							System.out.println("\n\n");
+							System.out.println("Enter the roll number :");
+							int roll = sc.nextInt();
+									sc.nextLine();
+							System.out.println("Enter the Name :");
+							String name = sc.nextLine();
+							System.out.println("Enter the Marks :");
+							int marks = sc.nextInt();
+							System.out.println("Enter the Mobile Number :");
+							long phone = sc.nextLong();
+							System.out.println("Do you want to Add anather Person then enter (1):");
+							check = sc.nextInt();
+							n++;
+							custom.addValues(roll, name, marks, phone); 
+						}
+					break;
+					case 2:
+						System.out.println("\n\n\n");
+						custom.print(n);
+						System.out.println("\n\n\n");
+					break;
+				}
+		}while(cas!=3);
     } 
 } 
